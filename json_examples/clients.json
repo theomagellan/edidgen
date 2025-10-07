@@ -1,0 +1,12 @@
+{
+  "id": { "manufacturer": "SUN" },
+  "monitor_name": "Virtual HDR",
+  "interface": "DP",
+  "hdr": true,
+  "modes": [
+    { "w": 2560, "h": 1600, "refresh": [60, 90] },
+    { "w": 1920, "h": 1200, "refresh": [60, 90] },
+    { "w": 3840, "h": 2160, "refresh": 60 },
+    { "w": 3024, "h": 1890, "refresh": [60, 90] }
+  ]
+}
