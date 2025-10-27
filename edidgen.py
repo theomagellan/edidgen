@@ -5,7 +5,7 @@ EDID generator for Wayland dummy sinks (e.g., Sunshine headless HDR display)
 
 Usage
 -----
-python edidgen_v2.py spec.json -o deckhdr.bin [--quiet] [--validate] [--print]
+python edidgen_v2.py spec.json -o deckhdr.bin [--validate] [--print]
 """
 
 import argparse
@@ -382,7 +382,6 @@ def main(argv: Optional[List[str]] = None) -> int:
     p.add_argument("-o", "--out", type=Path, required=True, help="Output EDID binary path")
     p.add_argument("--print", action="store_true", help="Print EDID as hex dump")
     p.add_argument("--validate", action="store_true", help="Run internal validator")
-    p.add_argument("--quiet", action="store_true", help="Suppress non-error output")
     args = p.parse_args(argv)
 
     try:
@@ -395,8 +394,6 @@ def main(argv: Optional[List[str]] = None) -> int:
                 return 2
         args.out.parent.mkdir(parents=True, exist_ok=True)
         args.out.write_bytes(edid)
-        if not args.quiet:
-            print(f"Wrote {len(edid)} bytes to {args.out}")
         if args.print:
             print(edid.hex())
         return 0
